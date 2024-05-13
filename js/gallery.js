@@ -92,13 +92,27 @@ document.addEventListener("DOMContentLoaded", function(){
             galleryEl.addEventListener("click", handleClick)
 
              function handleClick(event){
+                
                 console.log(event.target.dataset.source);
             }
+
+            const currentGallery = galleryEl.closest(".gallery-item");
+            const id = currentGallery.dataset.source;
+
+
+
+
+
+
+
+
+
+
              /* Модал */
 
     const instance  = basicLightbox.create( `
         
-    <img src="${images.original}" width="1112" height="640">
+    <img src="${img.id}" width="1112" height="640">
 `)
 
 instance.show();
