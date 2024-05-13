@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             images.forEach(image => {
                 const li = document.createElement("li");
-                li.classList.add("gallery-item")
+                li.classList.add(".gallery-item")
                 
                 const a = document.createElement("a")
                /*  a.classList.add("gallery-link"); */
@@ -92,20 +92,25 @@ document.addEventListener("DOMContentLoaded", function(){
             galleryEl.addEventListener("click", handleClick)
 
              function handleClick(event){
-                
+                const currentGallery = galleryEl.closest(".gallery-item");
+                const original = currentGallery.images.original;
+                const gallery = galleryEl.find(image => images.original === original)
                 console.log(event.target.dataset.source);
-            }
-
-            const currentGallery = galleryEl.closest(".gallery-item");
-            const id = currentGallery.dataset.source;
- /* Модал */
-
+                
+                /* Модал */
+   
     const instance  = basicLightbox.create( `
         
-    <img src="${img.id}" width="1112" height="640">
-`)
+    <img src="${images.original}" width="1112" height="640">
+    
+`  )
 
 instance.show();
+
+            }
+
+        
+ 
     });
 
    
