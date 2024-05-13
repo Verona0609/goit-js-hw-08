@@ -1,6 +1,6 @@
 
 
-.gallery {
+ .gallery {
     display: flex;
     flex-wrap: wrap;
   width: 100%;
@@ -9,11 +9,9 @@
 
 
 .gallery-item{
-    display: block;
-    margin: 0;
-    padding: 0;
-   
-
+  display: block;
+  margin: 0;
+padding: 0;
 }
 
 .gallery img {
@@ -21,3 +19,4 @@
    margin: 5px;
     height: auto; 
 }
+ 

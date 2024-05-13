@@ -92,26 +92,20 @@ document.addEventListener("DOMContentLoaded", function(){
             galleryEl.addEventListener("click", handleClick)
 
              function handleClick(event){
-                const currentGallery = galleryEl.closest(".gallery-item");
-                const original = currentGallery.images.original;
-                const gallery = galleryEl.find(image => images.original === original)
                 console.log(event.target.dataset.source);
                 
-                /* Модал */
+                /* Модалка */
    
     const instance  = basicLightbox.create( `
         
-    <img src="${images.original}" width="1112" height="640">
+    <img src="${event.target.dataset.source}" width="1112" height="640">
     
 `  )
 
 instance.show();
 
             }
-
-        
- 
-    });
+});
 
    
 
