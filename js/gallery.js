@@ -98,17 +98,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
             const currentGallery = galleryEl.closest(".gallery-item");
             const id = currentGallery.dataset.source;
-
-
-
-
-
-
-
-
-
-
-             /* Модал */
+ /* Модал */
 
     const instance  = basicLightbox.create( `
         
