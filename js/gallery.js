@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(){
-        const galleryEl = document.querySelector(".gallery")
+
+      
         const images = [
               {
                 preview:
@@ -65,36 +65,72 @@ document.addEventListener("DOMContentLoaded", function(){
                 description: 'Lighthouse Coast Sea',
               },
             ];
-            /* Створення та додавання тегів */
-            
-            const fragment = document.createDocumentFragment();
 
-            images.forEach(image => {
-                const li = document.createElement("li");
-                li.classList.add(".gallery-item")
-                
-                const a = document.createElement("a")
-               /*  a.classList.add("gallery-link"); */
-                const img = document.createElement("img");
-                /* img.classList.add("gallery-image") */
-                img.src = image.preview;
-                img.alt = image.description;
-                img.dataset.source = image.original;
-                li.appendChild(a);
-                a.appendChild(img);
-                fragment.appendChild(li);
+
             
-            });
-            galleryEl.append(fragment);  
+            
+            const galleryEl = document.querySelector(".gallery");
+
+            galleryEl.insertAdjacentHTML("beforeend", createMarcup(images));
+            galleryEl.addEventListener("click", handleClick)
+
+            
+
+            function createMarcup(arr){
+                return arr.map(images => `
+                <li class="gallery-item">
+  <a class="gallery-link" href="${images.original}">
+    <img
+      class="gallery-image"
+      src="${images.preview}"
+      data-source="${images.original}"
+      alt="${images.description}"
+    />
+  </a>
+</li>
+                `
+                ).join(""); 
+                
+            }
+
+            function handleClick(event){
+                if(event.target === event.currentTargent){
+                
+                
+                return ;
+                }
+                console.log(event.target);
+                const currentGallery = event.target.closest(".gallery-link");
+
+
+                const instance  = basicLightbox.create( `
+        
+                <img src="${event.target.dataset.source}" width="1112" height="640">
+                
+            `  )
+            
+            instance.show();
+                
+            }
+
+            
+
+           
+
+
+
+
+
+            
               
 
-            /* Делегування події */
-            galleryEl.addEventListener("click", handleClick)
+           
+           /*  galleryEl.addEventListener("click", handleClick)
 
              function handleClick(event){
                 console.log(event.target.dataset.source);
                 
-                /* Модалка */
+                
    
     const instance  = basicLightbox.create( `
         
@@ -104,8 +140,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 instance.show();
 
-            }
-});
+            } */
 
    
 
