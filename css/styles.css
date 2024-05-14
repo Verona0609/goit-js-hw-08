@@ -1,31 +1,13 @@
 
-/* 
- .gallery {
-    display: flex;
-    flex-wrap: wrap;
-  width: 100%;
-   
-}
 
-
-.gallery-item{
-  display: block;
-  margin: 0;
-padding: 0;
-}
-
-.gallery img {
-    flex-basis: calc(33.333% - 10px); 
-   margin: 5px;
-    height: auto; 
-}
-  */
 
 .gallery{
   display:flex;
   flex-wrap: wrap;
   width: 100%;
-}
+ ; 
+ }
+
 
 .gallery-item{
  display: block;
@@ -34,7 +16,7 @@ padding: 0;
 }
 
 .gallery-image {
-  flex-basis: calc(33.333% - 10px); 
- margin: 5px;
-  height: auto; 
+   flex-basis: calc(33.333% - 10px); 
+  margin: 5px;
+   height: auto
 }
