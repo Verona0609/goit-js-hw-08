@@ -76,21 +76,7 @@
             galleryEl.addEventListener("click", handleClick);
             
 
-/* 
-             document.querySelectorAll('.gallery-link').forEach(link => {
-                link.addEventListener('click', event => {
-                event.preventDefault();
-
-                });
-              });   */
-
-             
-             
-             
-
-            
-
-            function createMarcup(arr){
+ function createMarcup(arr){
                 return arr.map(images => `
                 <li class="gallery-item">
   <a class="gallery-link" href="${images.original}">
@@ -101,28 +87,24 @@
       alt="${images.description}"
     />
   </a>
-</li>
-                `
-                ).join(""); 
+</li>`).join(""); 
                 
             }
 
             function handleClick(event){
-           console.log(event.target);
+          
                 event.preventDefault();
-                const current = event.target.closest("gallery-image")
-                if(!current){
+                
+                if(event.target.nodeName !== `IMG`){
                     return;
                 }
+                 console.log(event.target.dataset.source);
                 
                  const instance = basicLightbox.create(`
                  <img src="${event.target.dataset.source}" width="1112" height="640">
                  `)
                  instance.show();
-                
-                 
-
-            }
+             }
 
             
 
@@ -134,6 +116,7 @@
 
             
               
+
 
            
           
