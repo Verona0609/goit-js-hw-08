@@ -72,19 +72,21 @@
             const galleryEl = document.querySelector(".gallery");
 
             galleryEl.insertAdjacentHTML("beforeend", createMarcup(images));
+
             galleryEl.addEventListener("click", handleClick);
-
-
             
 
-            
-
-             document.querySelectorAll('.gallery-item').forEach(item => {
-                item.addEventListener('click', event => {
+/* 
+             document.querySelectorAll('.gallery-link').forEach(link => {
+                link.addEventListener('click', event => {
                 event.preventDefault();
 
                 });
-              }); 
+              });   */
+
+             
+             
+             
 
             
 
@@ -106,26 +108,18 @@
             }
 
             function handleClick(event){
-                 if(event.target.nodeName === `IMG`){
-                    event.preventDefault();
-                } 
-                console.log(event.target);
-                const currentGallery = event.target.closest(".gallery-image")
-                if(!currentGallery){
+           console.log(event.target);
+                event.preventDefault();
+                const current = event.target.closest("gallery-image")
+                if(!current){
                     return;
                 }
                 
-                   
+                 const instance = basicLightbox.create(`
+                 <img src="${event.target.dataset.source}" width="1112" height="640">
+                 `)
+                 instance.show();
                 
-
-
-                const instance  = basicLightbox.create( `
-        
-                <img src="${event.target.dataset.source}" width="1112" height="640">
-                
-            `  )
-            
-            instance.show();
                  
 
             }

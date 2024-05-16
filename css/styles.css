@@ -1,11 +1,8 @@
-
-
-
 .gallery{
   display:flex;
   flex-wrap: wrap;
   width: 100%;
- ; 
+ 
  }
 
 
@@ -18,5 +15,5 @@
 .gallery-image {
    flex-basis: calc(33.333% - 10px); 
   margin: 5px;
-   height: auto
+   height: auto;
 }
